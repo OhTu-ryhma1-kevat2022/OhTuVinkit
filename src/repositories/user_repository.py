@@ -1,6 +1,19 @@
+from db import db
+
 class UserRepository:
     def __init__(self):
         self._users = []
+
+
+    def register(username,password):
+
+        try:
+            sql = "INSERT INTO users (username,password) VALUES (:username,:password)"
+            db.session.execute(sql, {"username":username,"password":password})
+            db.session.commit()
+        except:
+            return False
+        return
 
     def find_all(self):
         return self._users
@@ -23,6 +36,9 @@ class UserRepository:
 
         return user
 
+
+
+
     def delete_user(self, user_id):
         users = self.find_all()
         self._users = [user for user in users if user.id != user_id]
@@ -30,5 +46,3 @@ class UserRepository:
     def delete_all(self):
         self._users = []
 
-
-user_repository = UserRepository()
