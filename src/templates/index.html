@@ -1,9 +1,14 @@
 {% extends "layout.html" %}
-{% block title %}
-miniprojekti
-{% endblock %}
-
+{% block title %}Etusivu{% endblock %}
 {% block body %}
-<h1>Tervetuloa</h1>
-<p>ryhmän 1 lukuvinkkisovellus</p>
+<h2>Tervetuloa sovellukseen!</h2>
+
+<h3>Kirjautuminen</h3>
+<form action="/login" method="POST">
+Tunnus: <input type="text" name="username"> <br>
+Salasana: <input type="password" name="password"> <br>
+<input type="submit" value="Kirjaudu">
+</form>
+<h4>Ei vielä käyttäjätunnusta?</h4>
+<a href="register">Luo uusi käyttäjä</a>
 {% endblock %}
