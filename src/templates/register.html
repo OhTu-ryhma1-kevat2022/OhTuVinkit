@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Rekisteröityminen{% endblock %}
+{% block body %}
+<h2>Luo uusi tunnus</h2>
+
+<form action="/create-user" method="POST">
+Tunnus: <input type="text" name="username"> <br>
+Salasana: <input type="password" name="password"> <br>
+Salasana uudestaan: <input type="password" name="password2">
+<input type="submit" value="Luo tunnus">
+</form>
+{% endblock %}
