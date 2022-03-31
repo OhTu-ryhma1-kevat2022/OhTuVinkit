@@ -20,8 +20,11 @@ class UserRepository:
 
     def find_by_username(self, username):
         users = self.find_all()
-        user = filter(lambda user: user.name == username, users)[0] or None
-        return user
+        user_to_find = None
+        for user in users:
+            if user.username == username:
+                user_to_find = user
+        return user_to_find
 
     def create_user(self, user):
         users = self.find_all()
