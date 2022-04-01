@@ -1,10 +1,10 @@
 from flask import Flask
 from flask import redirect, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+from app import app
+from db import db
 
-app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///user" #userin tilalle oma
-db = SQLAlchemy(app)
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///user" # userin tilalle oma
 
 
 def create_tables():
