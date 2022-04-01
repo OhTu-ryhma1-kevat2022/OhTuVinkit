@@ -1,19 +1,6 @@
-from db import db
-
 class UserRepository:
     def __init__(self):
         self._users = []
-
-
-    def register(username,password):
-
-        try:
-            sql = "INSERT INTO users (username,password) VALUES (:username,:password)"
-            db.session.execute(sql, {"username":username,"password":password})
-            db.session.commit()
-        except:
-            return False
-        return
 
     def find_all(self):
         return self._users
