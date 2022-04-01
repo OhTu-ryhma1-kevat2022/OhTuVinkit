@@ -4,9 +4,4 @@ __pycache__
 *.py[cod]
 *$py.class
 venv
-<<<<<<< HEAD
 .env
-=======
-.coverage
-htmlcov/
->>>>>>> bc3d08400a567f0b3a36bd18e17f9045e0804a20
