@@ -1,6 +1,15 @@
 {% extends "layout.html" %}
 {% block title %}Etusivu{% endblock %}
 {% block body %}
-<h2>Tervetuloa sovellukseen!</h2>
+<h2>Tervetuloa sovellukseen! </h2>
+{% if session.user_id %}
+{{session.username}}
+<a href="/logout">Kirjaudu ulos</a>
+
+{% else %}
+Et ole kirjautunut.
+{% endif %}
+
 
 {% endblock %}
+

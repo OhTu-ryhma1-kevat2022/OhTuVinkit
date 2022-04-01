@@ -17,6 +17,13 @@ def login():
     else:
         return render_template("index.html")
 
+@app.route("/logout")
+def logout():
+
+    users.logout()
+    return render_template("welcome.html")
+
+
 @app.route("/register")
 def new_user():
     return render_template("register.html")
@@ -26,6 +33,7 @@ def create_user():
     username = request.form["username"]
     password = request.form["password"]
     password2 = request.form["password2"]
+
     if users.register(username,password):
         return render_template("welcome.html")
     else:

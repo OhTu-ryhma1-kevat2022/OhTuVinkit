@@ -1,5 +1,6 @@
 from db import db
 from werkzeug.security import check_password_hash, generate_password_hash
+from flask import session
 
 def login(username,password):
 
@@ -11,10 +12,17 @@ def login(username,password):
     else:
         if check_password_hash(user[0],password):
 
+            session['user_id'] = user.id
+            session['username'] = username
+            session['logged_in'] = True
+
             return True
         else:
             return False
 
+def logout():
+    del session["user_id"]
+    session['logged_in'] = False
 
 
 def register(username,password):
