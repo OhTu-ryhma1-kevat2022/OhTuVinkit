@@ -26,13 +26,9 @@ class UserRepository:
 
         return user
 
-
-
-
     def delete_user(self, user_id):
         users = self.find_all()
         self._users = [user for user in users if user.id != user_id]
 
     def delete_all(self):
         self._users = []
-
