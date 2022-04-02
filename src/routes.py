@@ -39,5 +39,10 @@ def create_user():
     else:
         return render_template("index.html")
 
+@app.route("/new_book_tip")
+def new_book_tip():
+    return render_template("new_book_tip.html")
+
+
 
 

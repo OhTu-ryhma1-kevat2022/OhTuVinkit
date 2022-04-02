@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 {% block title %}Etusivu{% endblock %}
 {% block body %}
-<h2>Tervetuloa sovellukseen! </h2>
+<h2>Tervetuloa sovellukseen! </h2><br>
 {% if session.user_id %}
-{{session.username}}
+<h2>{{session.username}}</h2><br>
+
+<a href="/new_book_tip">Uusi kirjavinkki</a><br>
 <a href="/logout">Kirjaudu ulos</a>
 
 {% else %}

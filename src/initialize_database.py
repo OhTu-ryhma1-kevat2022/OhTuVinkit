@@ -1,6 +1,3 @@
-from flask import Flask
-from flask import redirect, render_template, request
-from flask_sqlalchemy import SQLAlchemy
 from app import app
 from db import db
 from config import DATABASE_URL
