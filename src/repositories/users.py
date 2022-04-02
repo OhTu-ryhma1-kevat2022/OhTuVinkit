@@ -1,6 +1,7 @@
 from db import db
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask import session
+from services import user_service
 
 def login(username,password):
 
@@ -25,7 +26,7 @@ def logout():
     session['logged_in'] = False
 
 
-def register(username,password):
+def register(username, password):
     hash_value = generate_password_hash(password)
     try:
         sql = "INSERT INTO users (username,password) VALUES (:username,:password)"
