@@ -4,6 +4,15 @@
 <h2>Luo uusi tunnus</h2>
 
 <form action="/create-user" method="POST">
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
 Tunnus: <input type="text" name="username"> <br>
 Salasana: <input type="password" name="password"> <br>
 Salasana uudestaan: <input type="password" name="password2">

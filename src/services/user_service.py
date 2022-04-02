@@ -2,6 +2,7 @@ from entities.user import User
 from repositories.user_repository import (
     user_repository as default_user_repository
 )
+from repositories import users
 
 
 class UserInputError(Exception):
@@ -27,15 +28,17 @@ class UserService:
 
         return user
 
-    def create_user(self, username, password):
+    def create_user(self, username, password, confirm_password):
         if not username or not password:
             raise UserInputError("Username and password are required")
-
+        
+        if password != confirm_password:
+            raise UserInputError("Password do not match")
+        users.register(username, password)
         user = self._user_repository.create(
             User(username, password)
         )
 
         return user
-
 
 user_service = UserService()

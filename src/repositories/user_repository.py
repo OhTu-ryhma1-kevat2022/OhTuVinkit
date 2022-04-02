@@ -13,7 +13,7 @@ class UserRepository:
                 user_to_find = user
         return user_to_find
 
-    def create_user(self, user):
+    def create(self, user):
         users = self.find_all()
 
         if self.find_by_username(user.username):
