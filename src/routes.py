@@ -1,8 +1,7 @@
 from app import app
-from repositories import tips_repository
-from repositories import users
+from services.tips_service import tips_service
 from services.user_service import user_service
-from flask import (Flask, render_template, request, redirect, flash)
+from flask import (render_template, request, redirect, flash)
 
 
 @app.route("/")
@@ -11,14 +10,14 @@ def home_page():
 
 @app.route("/welcome")
 def welcome():
-    list = tips_repository.get_list()
+    list = tips_service.get_all_tips()
     return render_template("welcome.html", count=len(list), tips=list)
 
 @app.route("/login", methods=["POST"])
 def login():
     username = request.form["username"]
     password = request.form["password"]
-    if users.login(username,password):
+    if user_service.login(username,password):
         return welcome()
     else:
         return render_template("index.html")
@@ -26,7 +25,7 @@ def login():
 @app.route("/logout")
 def logout():
 
-    users.logout()
+    user_service.logout()
     return render_template("welcome.html")
 
 
@@ -55,7 +54,7 @@ def new_book_tip():
 def new_tip():
     tittle = request.form["title"]
     link = request.form["link"]
-    tips_repository.add(tittle,link)
+    tips_service.add_new_tip(tittle,link)
     return welcome()
 
 
