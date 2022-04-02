@@ -3,8 +3,9 @@ from flask import redirect, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from app import app
 from db import db
+from config import DATABASE_URL
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///user" # userin tilalle oma
+app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
 
 
 def create_tables():
