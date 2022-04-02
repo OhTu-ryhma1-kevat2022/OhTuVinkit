@@ -14,12 +14,27 @@ def create_tables():
         );
     """)
 
+    db.session.execute("""
+        CREATE TABLE tips (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER REFERENCES users,
+        tittle TEXT NOT NULL,
+        link TEXT NOT NULL
+        );
+    """)
+
+
+
     db.session.commit()
 
 
 def drop_tables():
     db.session.execute("""
-        DROP TABLE IF EXISTS users;
+        DROP TABLE IF EXISTS users CASCADE;
+    """)
+
+    db.session.execute("""
+        DROP TABLE IF EXISTS tips;
     """)
 
     db.session.commit()

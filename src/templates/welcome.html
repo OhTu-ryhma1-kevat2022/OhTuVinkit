@@ -5,6 +5,15 @@
 {% if session.user_id %}
 <h2>{{session.username}}</h2><br>
 
+<hr>
+{% for tip in tips %}
+<i>Otsikko:</i> {{ tip[0] }}
+<p>
+<i>Linkki:</i> {{ tip[1] }}
+
+<hr>
+{% endfor %}
+
 <a href="/new_book_tip">Uusi kirjavinkki</a><br>
 <a href="/logout">Kirjaudu ulos</a>
 

@@ -1,4 +1,5 @@
 from app import app
+from repositories import tips_repository
 from repositories import users
 from services.user_service import user_service
 from flask import (Flask, render_template, request, redirect, flash)
@@ -8,12 +9,17 @@ from flask import (Flask, render_template, request, redirect, flash)
 def home_page():
     return render_template("index.html")
 
+@app.route("/welcome")
+def welcome():
+    list = tips_repository.get_list()
+    return render_template("welcome.html", count=len(list), tips=list)
+
 @app.route("/login", methods=["POST"])
 def login():
     username = request.form["username"]
     password = request.form["password"]
     if users.login(username,password):
-        return render_template("welcome.html")
+        return welcome()
     else:
         return render_template("index.html")
 
@@ -36,7 +42,7 @@ def create_user():
 
     try:
         user_service.create_user(username, password, confirm_password)
-        return render_template("welcome.html")
+        return welcome()
     except Exception as error:
         flash(str(error))
         return redirect("/register")
@@ -44,6 +50,13 @@ def create_user():
 @app.route("/new_book_tip")
 def new_book_tip():
     return render_template("new_book_tip.html")
+
+@app.route("/new_tip",methods=["POST"])
+def new_tip():
+    tittle = request.form["title"]
+    link = request.form["link"]
+    tips_repository.add(tittle,link)
+    return welcome()
 
 
 
