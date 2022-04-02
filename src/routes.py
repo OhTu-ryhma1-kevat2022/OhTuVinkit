@@ -1,7 +1,7 @@
 from app import app
 from repositories import users
-
-from flask import (Flask, render_template, request)
+from services.user_service import user_service
+from flask import (Flask, render_template, request, redirect, flash)
 
 
 @app.route("/")
@@ -32,12 +32,14 @@ def new_user():
 def create_user():
     username = request.form["username"]
     password = request.form["password"]
-    password2 = request.form["password2"]
+    confirm_password = request.form["password2"]
 
-    if users.register(username,password):
+    try:
+        user_service.create_user(username, password, confirm_password)
         return render_template("welcome.html")
-    else:
-        return render_template("index.html")
+    except Exception as error:
+        flash(str(error))
+        return redirect("/register")
 
 @app.route("/new_book_tip")
 def new_book_tip():
