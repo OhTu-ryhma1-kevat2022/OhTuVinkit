@@ -1,7 +1,7 @@
 from app import app
 from repositories import users
 
-from flask import (Flask, render_template, request)
+from flask import (Flask, render_template, request, redirect, flash)
 
 
 @app.route("/")
@@ -34,10 +34,12 @@ def create_user():
     password = request.form["password"]
     password2 = request.form["password2"]
 
-    if users.register(username,password):
+    try:
+        users.register(username,password)
         return render_template("welcome.html")
-    else:
-        return render_template("index.html")
+    except Exception as error:
+        flash(str(error))
+        return redirect("/register")
 
 
 
