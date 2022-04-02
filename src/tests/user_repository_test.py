@@ -10,7 +10,7 @@ class TestUserRepository(unittest.TestCase):
         
         self.repository = UserRepository()
         for user in self.users:
-            self.repository.create_user(user)
+            self.repository.create(user)
 
     def test_find_all_returns_all_users_in_repository(self):
         self.assertListEqual(self.repository.find_all(), self.users)
@@ -20,12 +20,12 @@ class TestUserRepository(unittest.TestCase):
 
     def test_if_username_exists_create_user_raises_exception_and_user_is_not_created(self):
         with self.assertRaises(Exception):
-            self.repository.create_user(User("joonas", "password1"))
+            self.repository.create(User("joonas", "password1"))
         self.assertListEqual(self.repository.find_all(), self.users)
 
     def test_if_username_is_available_new_user_is_created_and_returned(self):
         new_user = User("kalle", "password1")
-        created_user = self.repository.create_user(new_user)
+        created_user = self.repository.create(new_user)
 
         self.assertEqual(self.repository.find_by_username("kalle").username, "kalle")
         self.assertEqual(created_user.username, new_user.username)
