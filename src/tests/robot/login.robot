@@ -25,6 +25,12 @@ Login Fails With Empty Fields
     Submit Credentials
     Login Should Fail With Message  Username and password are required
 
+LoggedIn User Does Not See Home And Login Page
+    Input Credentials  test_user  test1234
+    Submit Credentials
+    Go To Home And Login Page
+    Main Page Should Be Open
+
 *** Keywords ***
 Login Should Succeed
     Main Page Should Be Open
