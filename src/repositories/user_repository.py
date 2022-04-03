@@ -76,4 +76,8 @@ class UserRepository:
             )
         self.login(username, password)
 
+    def logged_in(self):
+        return session.get('logged_in', False)
+
+
 user_repository = UserRepository()

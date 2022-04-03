@@ -7,6 +7,8 @@ from flask import (render_template, request, redirect, flash)
 
 @app.route("/")
 def home_page():
+    if user_service.logged_in():
+        return redirect("/welcome")
     return render_template("index.html")
 
 @app.route("/welcome")

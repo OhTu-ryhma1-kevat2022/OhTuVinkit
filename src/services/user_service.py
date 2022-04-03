@@ -1,5 +1,6 @@
 from entities.user import User
 from repositories.user_repository import (
+    session,
     user_repository as default_user_repository
 )
 
@@ -29,7 +30,7 @@ class UserService:
     def login(self, username, password):
         if not username or not password:
             raise UserInputError("Username and password are required")
-            
+
         self._user_repository.login(username, password)
 
     def logout(self):
@@ -47,5 +48,8 @@ class UserService:
         )
 
         return user
+
+    def logged_in(self):
+        return self._user_repository.logged_in()
 
 user_service = UserService()
