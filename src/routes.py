@@ -18,15 +18,14 @@ def login():
     username = request.form["username"]
     password = request.form["password"]
     if user_service.login(username,password):
-        return welcome()
+        return redirect("/welcome")
     else:
         return render_template("index.html")
 
 @app.route("/logout")
 def logout():
-
     user_service.logout()
-    return render_template("welcome.html")
+    return redirect("/")
 
 
 @app.route("/register")
