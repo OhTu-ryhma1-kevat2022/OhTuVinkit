@@ -10,6 +10,7 @@ User Login Succeed With Correct Credentials
     Input Credentials  test_user  test1234
     Submit Credentials
     Login Should Succeed
+    Log Out
 
 Login Fails With Incorrect Username
     Input Credentials  wrongPerson  test1234
@@ -42,6 +43,9 @@ Login Should Fail With Message
 
 Submit Credentials
     Click Button  Kirjaudu
+
+Log Out
+    Click Link  Kirjaudu ulos
 
 Set Username
     [Arguments]  ${username}

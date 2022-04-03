@@ -13,6 +13,7 @@ User Register Successfully With Available Username
     Set Confirmatin Password  test1234
     Submit Register
     Main Page Should Be Open
+    Log Out
 
 User Can Not Register With Taken Username
     Go To Register Page
@@ -56,6 +57,8 @@ Set Confirmatin Password
 
 Submit Register
     Click Button  Luo tunnus
+Log Out
+    Click Link  Kirjaudu ulos
 
 Register Should Fail With Message
     [Arguments]  ${message}
