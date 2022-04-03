@@ -7,9 +7,9 @@
 
 <hr>
 {% for tip in tips %}
-<i>Otsikko:</i> {{ tip[0] }}
+Otsikko: {{ tip[0] }}
 <p>
-<i>Linkki:</i> {{ tip[1] }}
+Linkki:<a href={{ tip[1] }}>{{ tip[1] }}</a>
 
 <hr>
 {% endfor %}
