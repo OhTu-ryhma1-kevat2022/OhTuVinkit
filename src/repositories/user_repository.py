@@ -45,17 +45,19 @@ class UserRepository:
         result = db.session.execute(sql, {"username":username})
         user = result.fetchone()
         if user == None:
-            return False
+            raise Exception(
+                f"User with username {username} does not exist"
+            )
         else:
             if check_password_hash(user[0],password):
 
                 session['user_id'] = user.id
                 session['username'] = username
                 session['logged_in'] = True
-
-                return True
             else:
-                return False
+                raise Exception(
+                    f"Incorrect username or password"
+                )
 
     def logout(self):
         del session["user_id"]

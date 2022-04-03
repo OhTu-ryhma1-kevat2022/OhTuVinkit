@@ -14,7 +14,7 @@ User Login Succeed With Correct Credentials
 Login Fails With Incorrect Username
     Input Credentials  wrongPerson  test1234
     Submit Credentials
-    Login Should Fail With Message  Incorrect username or password
+    Login Should Fail With Message  User with username wrongPerson does not exist
 
 Login Fails With Incorrect Password
     Input Credentials  test_user  wongpass

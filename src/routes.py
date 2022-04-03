@@ -18,9 +18,11 @@ def welcome():
 def login():
     username = request.form["username"]
     password = request.form["password"]
-    if user_service.login(username,password):
+    try:
+        user_service.login(username,password)
         return redirect("/welcome")
-    else:
+    except Exception as error:
+        flash(str(error))
         return render_template("index.html")
 
 @app.route("/logout")

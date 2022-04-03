@@ -27,7 +27,10 @@ class UserService:
         return user
 
     def login(self, username, password):
-        return self._user_repository.login(username, password)
+        if not username or not password:
+            raise UserInputError("Username and password are required")
+            
+        self._user_repository.login(username, password)
 
     def logout(self):
         self._user_repository.logout()
