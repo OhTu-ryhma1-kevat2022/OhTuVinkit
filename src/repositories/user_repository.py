@@ -35,7 +35,9 @@ class UserRepository:
         self._users = [user for user in users if user.id != user_id]
 
     def delete_all(self):
-        self._users = []
+        sql = "DELETE FROM users"
+        db.session.execute(sql)
+        db.session.commit()
 
     def login(self, username, password):
 
