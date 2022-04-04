@@ -3,7 +3,6 @@ from repositories.user_repository import (
     user_repository as default_user_repository
 )
 
-
 class UserInputError(Exception):
     pass
 
@@ -27,15 +26,32 @@ class UserService:
 
         return user
 
-    def create_user(self, username, password):
+    def login(self, username, password):
         if not username or not password:
             raise UserInputError("Username and password are required")
 
+        self._user_repository.login(username, password)
+
+    def logout(self):
+        self._user_repository.logout()
+
+    def create_user(self, username, password, confirm_password):
+        if not username or not password:
+            raise UserInputError("Username and password are required")
+        
+        if password != confirm_password:
+            raise UserInputError("Password do not match")
+        self._user_repository.register(username, password)
         user = self._user_repository.create(
             User(username, password)
         )
 
         return user
 
+    def delete_all_users(self):
+        self._user_repository.delete_all()
+
+    def logged_in(self):
+        return self._user_repository.logged_in()
 
 user_service = UserService()
