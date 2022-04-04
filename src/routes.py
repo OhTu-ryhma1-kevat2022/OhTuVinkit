@@ -1,5 +1,4 @@
 from app import app
-from repositories.user_repository import user_repository
 from services.tips_service import tips_service
 from services.user_service import user_service
 from flask import (render_template, request, redirect, flash)
@@ -64,5 +63,5 @@ def new_tip():
 # sovelluksen tilan alustaminen testejä varten
 @app.route("/tests/reset", methods=["POST"])
 def reset_tests():
-    user_repository.delete_all()
+    user_service.delete_all_users()
     return "Reset"

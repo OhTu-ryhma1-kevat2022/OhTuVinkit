@@ -1,6 +1,5 @@
 from entities.user import User
 from repositories.user_repository import (
-    session,
     user_repository as default_user_repository
 )
 
@@ -48,6 +47,9 @@ class UserService:
         )
 
         return user
+
+    def delete_all_users(self):
+        self._user_repository.delete_all()
 
     def logged_in(self):
         return self._user_repository.logged_in()
