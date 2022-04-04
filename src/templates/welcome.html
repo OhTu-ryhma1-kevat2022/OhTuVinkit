@@ -1,6 +1,27 @@
 {% extends "layout.html" %}
-{% block title %}Etusivu{% endblock %}
+{% block title %}Main{% endblock %}
 {% block body %}
-<h2>Tervetuloa sovellukseen!</h2>
+<h2>Tervetuloa sovellukseen! </h2><br>
+{% if session.user_id %}
+<h2>{{session.username}}</h2><br>
+
+<hr>
+{% for tip in tips %}
+Otsikko: {{ tip[0] }}
+<p>
+Linkki:<a href={{ tip[1] }}>{{ tip[1] }}</a>
+
+<hr>
+{% endfor %}
+
+<a href="/new_book_tip">Uusi kirjavinkki</a><br>
+<a href="/logout">Kirjaudu ulos</a>
+
+{% else %}
+Et ole kirjautunut.
+{% endif %}
+
 
 {% endblock %}
+
+

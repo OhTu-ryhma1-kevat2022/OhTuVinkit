@@ -1,8 +1,8 @@
 from app import app
 from flask_sqlalchemy import SQLAlchemy
-from os import getenv
+from config import DATABASE_URL
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///jovajova" #
+app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
 db = SQLAlchemy(app)
 
 
