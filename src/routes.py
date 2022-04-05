@@ -1,7 +1,7 @@
 from app import app
 from services.tips_service import tips_service
 from services.user_service import user_service
-from flask import (render_template, request, redirect, flash)
+from flask import render_template, request, redirect, flash
 
 
 @app.route("/")
