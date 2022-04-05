@@ -1,9 +1,13 @@
-from db import db
+try:
+    from db import db as default_db
+except ImportError:
+    default_db = None
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask import session
 
 class UserRepository:
-    def __init__(self):
+    def __init__(self, db=default_db):
+        self._db = db
         self._users = []
 
     def find_all(self):
@@ -36,13 +40,13 @@ class UserRepository:
 
     def delete_all(self):
         sql = "DELETE FROM users"
-        db.session.execute(sql)
-        db.session.commit()
+        self._db.session.execute(sql)
+        self._db.session.commit()
 
     def login(self, username, password):
 
         sql = "SELECT password, id FROM users WHERE username=:username"
-        result = db.session.execute(sql, {"username":username})
+        result = self._db.session.execute(sql, {"username":username})
         user = result.fetchone()
         if user == None:
             raise Exception(
@@ -68,8 +72,8 @@ class UserRepository:
         hash_value = generate_password_hash(password)
         try:
             sql = "INSERT INTO users (username,password) VALUES (:username,:password)"
-            db.session.execute(sql, {"username":username,"password":hash_value})
-            db.session.commit()
+            self._db.session.execute(sql, {"username":username,"password":hash_value})
+            self._db.session.commit()
         except:
             raise Exception(
                 f"User with username {username} already exists"
