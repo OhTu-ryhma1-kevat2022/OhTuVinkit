@@ -15,13 +15,13 @@ Kun olet asentanut PostgreSQL:n, saat sovelluksen käyttöön seuraavilla ohjeil
 DATABASE_URL=postgresql://<user>
 SECRET_KEY=
 ```
-3. Korvaa tietokannan osoitteessa `<user>` omalla käyttäjänimelläsi. Ennen sitä kannattaa kokeilla, että saat tietokantaan yhteyden syöttämällä komennon `psql <database_url>`, missä `<database_url>` on edellä mainitun mukainen (eli muotoa `postgresql://...`).
+3. Korvaa tietokannan osoitteessa `<user>` omalla käyttäjänimelläsi. Ennen sitä kannattaa kokeilla, että saat tietokantaan yhteyden syöttämällä komennon `psql <database_url>`, missä `<database_url>` on edellä mainitun mukainen (eli muotoa `postgresql://...`). Jos et saa tietokantaan yhteyttä, lisää vaihtoehtoja tietokannan osoitteelle löytyy [PostgreSQL:n dokumentaatiosta](https://www.postgresql.org/docs/current/libpq-connect.html#:~:text=34.1.1.2.%C2%A0Connection%20URIs).
 4. Anna kohdan `SECRET_KEY` arvoksi jokin satunnainen n. 16 kirjaimen ja numeron yhdistelmä.
 5. Alusta sovelluksen tietokanta komennolla
 ```
 poetry run python3 src/initialize_database.py
 ```
-7. Nyt voit käynnistää sovelluksen komennolla
+6. Nyt voit käynnistää sovelluksen komennolla
 ```
 poetry run python3 src/index.py
 ```
