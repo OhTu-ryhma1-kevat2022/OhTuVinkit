@@ -16,7 +16,7 @@ SECRET_KEY=
 4. Anna kohdan `SECRET_KEY` arvoksi jokin satunnainen n. 16 kirjaimen ja numeron yhdistelmä.
 5. Alusta sovelluksen tietokanta komennolla
 ```
-poetry run python3 src/initialize.py
+poetry run python3 src/initialize_database.py
 ```
 7. Nyt voit käynnistää sovelluksen komennolla
 ```
