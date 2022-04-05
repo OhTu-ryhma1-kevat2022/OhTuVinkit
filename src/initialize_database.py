@@ -1,9 +1,8 @@
-from app import app
+from app import create_app
 from db import db
-from config import DATABASE_URL
 
-app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
-
+app = create_app()
+app.app_context().push()
 
 def create_tables():
     db.session.execute("""
