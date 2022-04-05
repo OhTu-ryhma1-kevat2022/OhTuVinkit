@@ -3,7 +3,7 @@
 {% block body %}
 <h2>Tervetuloa sovellukseen! </h2><br>
 {% if session.user_id %}
-<h2>{{session.username}}</h2><br>
+<h2>Olet kirjautunut nimellä {{session.username}}</h2><br>
 
 <hr>
 {% for tip in tips %}

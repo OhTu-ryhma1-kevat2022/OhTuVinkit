@@ -1,5 +1,7 @@
 # Ohjelmistotuotannon miniprojekti - Lukuvinkkisovellus
 Sovelluksen avulla käyttäjä voi selata omia ja muiden käyttäjien lisäämiä lukuvinkkejä.
+
+![GitHub Actions](http://github.com/OhTu-ryhma1-kevat2022/OhTuVinkit/workflows/CI/badge.svg)
 ## Käyttöohje
 ### PostgreSQL-tietokannan asennus
 Sovellus toimii tällä hetkellä vain paikallisesti käyttäjän omalla koneella. Käyttääksesi sovellusta on sinulla oltava asennettuna PostgreSQL-tietokanta. Voit asentaa PostgreSQL:n esimerkiksi [Tietokantasovellus-kurssin ohjeen](https://hy-tsoha.github.io/materiaali/osa-2/#tietokannan-k%C3%A4ytt%C3%A4minen) tai PostgreSQL:n omilta sivuilta löytyvien [ohjeiden](https://www.postgresql.org/download/) avulla.
@@ -22,4 +24,15 @@ poetry run python3 src/initialize_database.py
 ```
 poetry run python3 src/index.py
 ```
+
+## Testaaminen
+
+Testien suorittaminen onnistuu komennolla:
+poetry run pytest src
+
+## Definition of done 
+
+### Sprint Backlog
+
+[Sprint Backlog](https://docs.google.com/spreadsheets/d/1vhExyLYPzf_6D_6n9ZL0pgwwG7Q6GSIjPRQ90pvJGMA/edit#gid=217460860)
 
