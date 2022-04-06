@@ -41,5 +41,5 @@ User story on:
 3. testattu Pytestin ja Robot Frameworkin avulla
 4. viety tuotantoon GitHubiin 
 
-[Sprint Backlog](https://docs.google.com/spreadsheets/d/1vhExyLYPzf_6D_6n9ZL0pgwwG7Q6GSIjPRQ90pvJGMA/edit#gid=217460860)
+[Sprint Backlog]
 
