@@ -39,7 +39,8 @@ User story on:
 1. jaettu sopivan kokoisiin taskeihin 
 2. toteutettu asianmukaisella tavalla
 3. testattu Pytestin ja Robot Frameworkin avulla
-4. viety GitHubiin 
+4. viety tuotantoon Herokuun
 
 [Sprint Backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/jovajova_ad_helsinki_fi/EbZWsAXdbudPn9_B0XcSLj0BOkojwpKiX2F8R3k8QMAAmQ?e=2XcjKR)
 
+[Product Backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/jovajova_ad_helsinki_fi/EbZWsAXdbudPn9_B0XcSLj0BOkojwpKiX2F8R3k8QMAAmQ?e=ES1R4Z)
