@@ -28,6 +28,10 @@ poetry run python3 src/index.py
 
 ## Testaaminen
 
+### Yksikkötestit
+
+Yksikkötestit suoritetaan pytestin avulla. Testit sijaitsevat src/tests-hakemistossa. 
+
 Testien suorittaminen onnistuu komennolla
 ```
 poetry run pytest src
@@ -38,8 +42,10 @@ poetry run pytest src
 User story on:
 1. jaettu sopivan kokoisiin taskeihin 
 2. toteutettu asianmukaisella tavalla
-3. testattu Pytestin ja Robot Frameworkin avulla
+3. testattu Pytestin ja Robot Frameworkin avulla. Testikattavuuden raja on 80%. 
 4. viety tuotantoon Herokuun
+
+## Backlogit
 
 [Sprint Backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/jovajova_ad_helsinki_fi/EbZWsAXdbudPn9_B0XcSLj0BOkojwpKiX2F8R3k8QMAAmQ?e=2XcjKR)
 
