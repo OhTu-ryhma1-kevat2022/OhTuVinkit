@@ -19,7 +19,8 @@ def create_tables():
         id SERIAL PRIMARY KEY,
         user_id INTEGER REFERENCES users,
         tittle TEXT NOT NULL,
-        link TEXT NOT NULL
+        link TEXT NOT NULL,
+        created TIMESTAMP
         );
     """)
 

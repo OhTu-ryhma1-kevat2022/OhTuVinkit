@@ -7,9 +7,13 @@
 
 <hr>
 {% for tip in tips %}
-Otsikko: {{ tip[0] }}
-<p>
-Linkki:<a href={{ tip[1] }}>{{ tip[1] }}</a>
+<table>
+    <tr>
+      <td><a href={{ tip[1] }}>{{ tip[0] }}</td>
+      <td>{{ tip[2].strftime("%d/%m/%Y") }}</td>
+
+    </tr>
+  </table>
 
 <hr>
 {% endfor %}

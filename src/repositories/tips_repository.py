@@ -5,7 +5,7 @@ from flask import session
 class TipsRepository:
 
     def get_list(self):
-        sql = "SELECT tittle, link FROM tips"
+        sql = "SELECT tittle, link, created FROM tips"
         result = db.session.execute(sql)
         return result.fetchall()
 
@@ -24,7 +24,7 @@ class TipsRepository:
         user_id = session.get("user_id", 0)
         if user_id == 0:
             return False
-        sql = "INSERT INTO tips (user_id, tittle,link) VALUES (:user_id, :tittle, :link)"
+        sql = "INSERT INTO tips (user_id, tittle,link, created) VALUES (:user_id, :tittle, :link, NOW())"
         db.session.execute(
             sql, {"user_id": user_id, "tittle": tittle, "link": link})
         db.session.commit()
