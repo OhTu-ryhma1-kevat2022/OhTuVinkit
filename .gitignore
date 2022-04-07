@@ -4,7 +4,7 @@ __pycache__
 *.py[cod]
 *$py.class
 venv
-.env
+.env*
 log.html
 output.xml
 report.html
