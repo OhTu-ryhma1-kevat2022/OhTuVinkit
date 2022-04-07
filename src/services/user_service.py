@@ -41,12 +41,8 @@ class UserService:
         
         if password != confirm_password:
             raise UserInputError("Password do not match")
+            
         self._user_repository.register(username, password)
-        user = self._user_repository.create(
-            User(username, password)
-        )
-
-        return user
 
     def delete_all_users(self):
         self._user_repository.delete_all()

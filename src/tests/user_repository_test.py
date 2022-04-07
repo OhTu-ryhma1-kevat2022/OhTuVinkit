@@ -1,20 +1,19 @@
 import unittest
-from unittest.mock import Mock, ANY
-from repositories.user_repository import UserRepository
-from entities.user import User
+from repositories.user_repository import user_repository
 
 
 class TestUserRepository(unittest.TestCase):
     def setUp(self):
-        usernames = ("hamid", "joonas", "jorma", "miia", "rasmus", "veera")
-        self.users = [User(username, "password1") for username in usernames]
+        user_repository.delete_all()
+
+    def test_after_creating_a_new_user_database_has_one_user(self):
+        user_repository.create(username="user", password="password123")
+        users = user_repository.find_all()
+        username = users[0].username
         
-        db_mock = Mock()
-
-        self.repository = UserRepository(db_mock)
-        for user in self.users:
-            self.repository.create(user)
-
+        self.assertEqual(username, "user")
+        self.assertEqual(len(users), 1)
+""" 
     def test_find_all_returns_all_users_in_repository(self):
         self.assertListEqual(self.repository.find_all(), self.users)
 
@@ -32,7 +31,7 @@ class TestUserRepository(unittest.TestCase):
 
         self.assertEqual(self.repository.find_by_username("kalle").username, "kalle")
         self.assertEqual(created_user.username, new_user.username)
-
+"""
 """    def test_no_users_remain_after_delete_all_method_is_called(self):
         users = self.repository.find_all()
         self.assertGreater(len(users), 0)

@@ -1,17 +1,16 @@
-try:
-    from db import db as default_db
-except ImportError:
-    default_db = None
+from db import db
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask import session
 
 class UserRepository:
-    def __init__(self, db=default_db):
-        self._db = db
+    def __init__(self):
         self._users = []
 
     def find_all(self):
-        return self._users
+        sql = "SELECT id, username FROM users"
+        result = db.session.execute(sql)
+        users = result.fetchall()
+        return users
 
     def find_by_username(self, username):
         users = self.find_all()
@@ -21,32 +20,20 @@ class UserRepository:
                 user_to_find = user
         return user_to_find
 
-    def create(self, user):
-        users = self.find_all()
-
-        if self.find_by_username(user.username):
-            raise Exception(
-                f"User with username {user.username} already exists"
-            )
-
-        users.append(user)
-        self._users = users
-
-        return user
-
-    def delete_user(self, user_id):
-        users = self.find_all()
-        self._users = [user for user in users if user.id != user_id]
+    def create(self, username, password):
+        sql = "INSERT INTO users (username, password) VALUES (:username, :password)"
+        db.session.execute(sql, {"username":username,"password":password})
+        db.session.commit()
 
     def delete_all(self):
         sql = "DELETE FROM users"
-        self._db.session.execute(sql)
-        self._db.session.commit()
+        db.session.execute(sql)
+        db.session.commit()
 
     def login(self, username, password):
 
         sql = "SELECT password, id FROM users WHERE username=:username"
-        result = self._db.session.execute(sql, {"username":username})
+        result = db.session.execute(sql, {"username":username})
         user = result.fetchone()
         if user == None:
             raise Exception(
@@ -72,8 +59,8 @@ class UserRepository:
         hash_value = generate_password_hash(password)
         try:
             sql = "INSERT INTO users (username,password) VALUES (:username,:password)"
-            self._db.session.execute(sql, {"username":username,"password":hash_value})
-            self._db.session.commit()
+            db.session.execute(sql, {"username":username,"password":hash_value})
+            db.session.commit()
         except:
             raise Exception(
                 f"User with username {username} already exists"
