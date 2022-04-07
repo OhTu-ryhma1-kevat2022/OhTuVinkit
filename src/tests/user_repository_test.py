@@ -7,7 +7,7 @@ class TestUserRepository(unittest.TestCase):
         user_repository.delete_all()
 
     def test_after_creating_a_new_user_database_has_one_user(self):
-        user_repository.create(username="user", password="password123")
+        user_repository.register(username="user", password="password123")
         users = user_repository.find_all()
         username = users[0].username
         

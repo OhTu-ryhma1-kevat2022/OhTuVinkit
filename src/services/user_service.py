@@ -19,30 +19,24 @@ class UserService:
         if not username or not password:
             raise UserInputError("Username and password are required")
 
-        user = self._user_repository.find_by_username(username)
-
-        if not user or user.password != password:
-            raise AuthenticationError("Invalid username or password")
-
-        return user
-
     def login(self, username, password):
-        if not username or not password:
-            raise UserInputError("Username and password are required")
-
+        self.check_credentials(username, password)
         self._user_repository.login(username, password)
 
     def logout(self):
         self._user_repository.logout()
 
     def create_user(self, username, password, confirm_password):
+        self.validate(username, password, confirm_password)
+        self._user_repository.register(username, password)
+        self._user_repository.login(username, password)
+
+    def validate(self, username, password, confirm_password):
         if not username or not password:
             raise UserInputError("Username and password are required")
         
         if password != confirm_password:
             raise UserInputError("Password do not match")
-            
-        self._user_repository.register(username, password)
 
     def delete_all_users(self):
         self._user_repository.delete_all()
