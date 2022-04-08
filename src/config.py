@@ -9,3 +9,6 @@ except FileNotFoundError:
     pass
 
 DATABASE_URL = os.getenv("DATABASE_URL")
+
+# Fix for Heroku
+DATABASE_URL = DATABASE_URL.replace('postgres://', 'postgresql://')
