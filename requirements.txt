@@ -72,6 +72,9 @@ greenlet==1.1.2; python_version >= "3" and python_full_version < "3.0.0" and (pl
     --hash=sha256:f70a9e237bb792c7cc7e44c531fd48f5897961701cdaa06cf22fc14965c496cf \
     --hash=sha256:013d61294b6cd8fe3242932c1c5e36e5d1db2c8afb58606c5a67efce62c1f5fd \
     --hash=sha256:e30f5ea4ae2346e62cedde8794a56858a67b878dd79f7df76a0767e356b1744a
+gunicorn==20.1.0; python_version >= "3.5" \
+    --hash=sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e \
+    --hash=sha256:e0a968b5ba15f8a328fdfd7ab1fcb5af4470c28aaf7e55df02a99bc13138e6e8
 importlib-metadata==4.11.3; python_version < "3.10" and python_version >= "3.7" and (python_version >= "3.7" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.7") \
     --hash=sha256:1208431ca90a8cca1a6b8af391bb53c1a2db74e5d1cef6ddced95d4b2062edc6 \
     --hash=sha256:ea4c597ebf37142f827b8f39299579e31685c31d3a438b59f469406afd0f2539
@@ -203,7 +206,7 @@ pytest==7.1.1; python_version >= "3.7" \
 python-dotenv==0.20.0; python_version >= "3.5" \
     --hash=sha256:b7e3b04a59693c42c36f9ab1cc2acc46fa5df8c78e178fc33a8d4cd05c8d498f \
     --hash=sha256:d92a187be61fe482e4fd675b6d52200e7be63a12b724abbf931a40ce4fa92938
-sqlalchemy==1.3.23; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.6.0" \
+sqlalchemy==1.4.31; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.6.0" \
     --hash=sha256:4b2bcab3a914715d332ca783e9bda13bc570d8b9ef087563210ba63082c18c16 \
     --hash=sha256:159c2f69dd6efd28e894f261ffca1100690f28210f34cfcd70b895e0ea7a64f3 \
     --hash=sha256:d7e483f4791fbda60e23926b098702340504f7684ce7e1fd2c1bf02029288423 \
