@@ -1,4 +1,4 @@
-from app import app
+from flask import current_app as app
 from services.tips_service import tips_service
 from services.user_service import user_service
 from flask import render_template, request, redirect, flash

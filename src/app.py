@@ -1,8 +1,17 @@
 from flask import Flask
-import os
+from config import DATABASE_URL, SECRET_KEY
+from db import db
 
-app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY")
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+def create_app():
+    app = Flask(__name__)
+    app.secret_key = SECRET_KEY
+    app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-import routes
+    db.init_app(app)
+
+    app.app_context().push()
+
+    import routes
+
+    return app
