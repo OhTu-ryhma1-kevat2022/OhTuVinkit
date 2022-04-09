@@ -14,8 +14,8 @@
         </ul>
     {% endif %}
 {% endwith %}
-Tunnus: <input type="text" name="username"> <br>
-Salasana: <input type="password" name="password"> <br>
+Tunnus: <input type="text" name="username" value={{entered_username}}> <br>
+Salasana: <input type="password" name="password" value="{{entered_pass}}"> <br>
 <input type="submit" value="Kirjaudu">
 </form>
 <h4>Ei vielä käyttäjätunnusta?</h4>

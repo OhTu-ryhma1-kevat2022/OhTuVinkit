@@ -13,8 +13,8 @@
         </ul>
     {% endif %}
 {% endwith %}
-Tunnus: <input type="text" name="username"> <br>
-Salasana: <input type="password" name="password"> <br>
+Tunnus: <input type="text" name="username" value="{{entered_user}}"> <br>
+Salasana: <input type="password" name="password" value="{{entered_pass}}"> <br>
 Salasana uudestaan: <input type="password" name="password2">
 <input type="submit" value="Luo tunnus">
 </form>

@@ -25,7 +25,7 @@ class UserRepository:
         if not user:
             raise Exception(
                 f"User with username {username} does not exist"
-            )
+                )
         if not check_password_hash(user.password, password):
             raise Exception(
                 f"Incorrect username or password"

@@ -10,6 +10,9 @@ class TipsService:
         return self._tips_repository.get_list()
 
     def add_new_tip(self, title, link):
+        if not title or not link:
+            raise Exception(f"Title and link are required!")
+        
         return self._tips_repository.add(title, link)
 
 tips_service = TipsService()

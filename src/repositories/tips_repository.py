@@ -24,11 +24,14 @@ class TipsRepository:
         user_id = session.get("user_id", 0)
         if user_id == 0:
             return False
-        sql = "INSERT INTO tips (user_id, tittle,link, created) VALUES (:user_id, :tittle, :link, NOW())"
-        db.session.execute(
-            sql, {"user_id": user_id, "tittle": tittle, "link": link})
-        db.session.commit()
-        return True
+        try:
 
+            sql = "INSERT INTO tips (user_id, tittle,link, created) VALUES (:user_id, :tittle, :link, NOW())"
+            db.session.execute(
+                sql, {"user_id": user_id, "tittle": tittle, "link": link})
+            db.session.commit()
+            return True
+        except:
+            raise Exception(f"Couldn't add your new tip")
 
 tips_repository = TipsRepository()

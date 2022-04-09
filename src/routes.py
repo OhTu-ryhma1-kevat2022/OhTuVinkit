@@ -24,7 +24,7 @@ def login():
         return redirect("/welcome")
     except Exception as error:
         flash(str(error))
-        return render_template("index.html")
+        return render_template("index.html", entered_username=username, entered_pass=password)
 
 @app.route("/logout")
 def logout():
@@ -47,7 +47,7 @@ def create_user():
         return welcome()
     except Exception as error:
         flash(str(error))
-        return redirect("/register")
+        return render_template("register.html", entered_user=username, entered_pass=password)
 
 @app.route("/new_book_tip")
 def new_book_tip():
@@ -57,8 +57,12 @@ def new_book_tip():
 def new_tip():
     tittle = request.form["title"]
     link = request.form["link"]
-    tips_service.add_new_tip(tittle,link)
-    return welcome()
+    try:
+        tips_service.add_new_tip(tittle,link)
+        return redirect("/welcome")
+    except Exception as error:
+        flash(str(error))
+        return render_template("new_book_tip.html", entered_title=tittle, entered_link=link)
 
 # sovelluksen tilan alustaminen testejä varten
 @app.route("/tests/reset", methods=["POST"])
