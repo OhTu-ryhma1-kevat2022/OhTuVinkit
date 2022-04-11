@@ -10,7 +10,7 @@ class UserRepository:
         return users
 
     def find_by_username(self, username):
-        sql = "SELECT password, id FROM users WHERE username=:username"
+        sql = "SELECT password, id, username FROM users WHERE username=:username"
         result = db.session.execute(sql, {"username":username})
         user = result.fetchone()
         return user
