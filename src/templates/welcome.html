@@ -1,3 +1,4 @@
+
 {% extends "layout.html" %}
 {% block title %}Main{% endblock %}
 {% block body %}
@@ -9,8 +10,13 @@
 {% for tip in tips %}
 <table>
     <tr>
-      <td><a href={{ tip[1] }}>{{ tip[0] }}</td>
-      <td>{{ tip[2].strftime("%d/%m/%Y") }}</td>
+      <td><a href={{ tip[2] }}>{{ tip[1] }}</td>
+      <td>{{ tip[3].strftime("%d/%m/%Y") }}</td>
+      {% if session.user_id == tip[4] %}
+
+      <td><button onclick= "if(confirm('Haluatko varmasti poistaa vinkin?')){location.href='/delete_tip/{{ tip[0] }}'} else{}"  class="button" role="button" onclick="confirm_delete()" >Poista vinkki</a></td>
+
+      {% endif %}
 
     </tr>
   </table>
@@ -21,11 +27,10 @@
 <a href="/new_book_tip">Uusi kirjavinkki</a><br>
 <a href="/logout">Kirjaudu ulos</a>
 
+
 {% else %}
 Et ole kirjautunut.
 {% endif %}
 
 
 {% endblock %}
-
-
