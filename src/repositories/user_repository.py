@@ -33,6 +33,7 @@ class UserRepository:
         session["user_id"] = user.id
         session["username"] = username
         session["logged_in"] = True
+        session["has_visited"] = True
 
 
     def logout(self):

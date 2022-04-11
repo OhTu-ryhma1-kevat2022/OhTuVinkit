@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
 {% block title %}Etusivu{% endblock %}
 {% block body %}
-<h2>Tervetuloa sovellukseen!</h2>
+
+{% if session.has_visited %}
+    <h2>Olet kirjautunut ulos!</h2>
+{% else %}
+    <h2>Tervetuloa sovellukseen!</h2>
+{% endif %}
 
 <h3>Kirjautuminen</h3>
 <form action="/login" method="POST">
