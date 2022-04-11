@@ -44,9 +44,6 @@ Login Should Fail With Message
 Submit Credentials
     Click Button  Kirjaudu
 
-Log Out
-    Click Link  Kirjaudu ulos
-
 Set Username
     [Arguments]  ${username}
     Input Text  username  ${username}
