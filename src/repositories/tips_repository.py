@@ -5,7 +5,7 @@ from flask import session
 class TipsRepository:
 
     def get_list(self):
-        sql = "SELECT tittle, link, created FROM tips"
+        sql = "SELECT id, tittle, link, created, user_id FROM tips"
         result = db.session.execute(sql)
         return result.fetchall()
 
@@ -33,5 +33,18 @@ class TipsRepository:
             return True
         except:
             raise Exception(f"Couldn't add your new tip")
+
+    def delete_by_id(self,id):
+        user_id = session.get("user_id", 0)
+        if user_id == 0:
+            return False
+        try:
+            sql = "DELETE FROM tips WHERE id =:id"
+            db.session.execute(sql, {"id":id})
+            db.session.commit()
+            return True
+        except:
+            raise Exception(f"Couldn't delete tip")
+
 
 tips_repository = TipsRepository()

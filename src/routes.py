@@ -64,6 +64,16 @@ def new_tip():
         flash(str(error))
         return render_template("new_book_tip.html", entered_title=tittle, entered_link=link)
 
+@app.route("/delete_tip/<int:id>")
+def delete_tip(id):
+    try:
+        tips_service.delete_tip(id)
+        return redirect("/welcome")
+    except Exception as error:
+        flash(str(error))
+        return redirect("/welcome")
+
+
 # sovelluksen tilan alustaminen testejä varten
 @app.route("/tests/reset", methods=["POST"])
 def reset_tests():
