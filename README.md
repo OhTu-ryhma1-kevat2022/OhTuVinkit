@@ -55,10 +55,19 @@ Ota Heroku tietokanta käyttöön komennolla
 ```
 heroku addons:create heroku-postgresql
 ```
+Tarkista, että tietokanta on luotu komennolla 
+```
+heroku config
+```
 Muodosta ```requirements.txt```-tiedosto riippuvuuksien perustella. Käytä komentoa
 ```
 poetry export -f requirements.txt --output requirements.txt
 ```
+Luo istuntojen käyttämistä varten SECRET KEY komennolla
+```
+heroku config:set SECRET_KEY=(avain tähän)
+```
+Jokainen tuotantoonviesti alustaa tietokannan uudelleen.
 
 ## Backlogit
 
