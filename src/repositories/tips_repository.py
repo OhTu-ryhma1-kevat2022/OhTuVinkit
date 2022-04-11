@@ -39,8 +39,8 @@ class TipsRepository:
         if user_id == 0:
             return False
         try:
-            sql = "DELETE FROM tips WHERE id =:id"
-            db.session.execute(sql, {"id":id})
+            sql = "DELETE FROM tips WHERE id =:id AND user_id =:user_id"
+            db.session.execute(sql, {"id":id, "user_id":user_id})
             db.session.commit()
             return True
         except:
