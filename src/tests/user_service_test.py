@@ -1,34 +1,25 @@
-"""
 import unittest
-from unittest.mock import Mock, ANY
-from services.user_service import UserService, UserInputError, AuthenticationError
-from entities.user import User
+from services.user_service import user_service, UserInputError, AuthenticationError
 
 class TestUserService(unittest.TestCase):
     def setUp(self):
-        usernames = ("hamid", "joonas", "jorma", "miia", "rasmus", "veera")
-        self.users = [User(username, "password1") for username in usernames]
-        
-        def find_by_username(username):
-            for user in self.users:
-                if user.username == username:
-                    return user
-            return None
-
-        self.user_repository_mock = Mock()
-        self.user_repository_mock.find_by_username = find_by_username
-
-        self.service = UserService(user_repository=self.user_repository_mock)
-
+        pass
+    
     def test_if_no_username_is_provided_check_credentials_raises_exception(self):
         with self.assertRaises(UserInputError):
-            self.service.check_credentials(None, "password1")
+            user_service.check_credentials(None, "password1")
 
     def test_if_no_password_is_provided_check_credentials_raises_exception(self):
         with self.assertRaises(UserInputError):
-            self.service.check_credentials("kalle", None)
+            user_service.check_credentials("kalle", None)
 
-    def test_with_wrong_password_check_credentials_raises_exception(self):
-        with self.assertRaises(AuthenticationError):
-            self.service.check_credentials("joonas", "wrongword")
-"""
+    def test_if_no_username_or_password_is_provided_validate_raises_exception(self):
+        with self.assertRaises(UserInputError):
+            user_service.validate(None, "password", "password")
+
+        with self.assertRaises(UserInputError):
+            user_service.validate("user", None, "password")
+
+    def test_if_password_and_password_confirmation_do_not_match_validate_raises_exception(self):
+        with self.assertRaises(UserInputError):
+            user_service.validate("new_user", "password", "not_the_same_password")

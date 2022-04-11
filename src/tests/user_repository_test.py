@@ -33,7 +33,7 @@ class TestUserRepository(unittest.TestCase):
         user_repository.register("user", "password123")
         with self.assertRaises(Exception):
             user_repository.login("user", "wrong_password")
-"""
+
     def test_no_users_remain_after_delete_all_method_is_called(self):
         user_repository.register("user1", "password123")
         user_repository.register("user2", "password123")
@@ -44,4 +44,3 @@ class TestUserRepository(unittest.TestCase):
 
         users = user_repository.find_all()
         self.assertEqual(len(users), 0)
-"""

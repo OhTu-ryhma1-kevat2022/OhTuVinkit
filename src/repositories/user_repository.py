@@ -16,9 +16,12 @@ class UserRepository:
         return user
 
     def delete_all(self):
-        sql = "DELETE FROM users"
-        db.session.execute(sql)
-        db.session.commit()
+        try:    
+            sql = "DELETE FROM users"
+            db.session.execute(sql)
+            db.session.commit()
+        except:
+            db.session.rollback()
 
     def login(self, username, password):
         user = self.find_by_username(username)
