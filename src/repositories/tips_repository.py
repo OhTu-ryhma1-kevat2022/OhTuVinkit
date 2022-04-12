@@ -25,10 +25,8 @@ class TipsRepository:
         if user_id == 0:
             return False
         try:
-
             sql = "INSERT INTO tips (user_id, tittle,link, created) VALUES (:user_id, :tittle, :link, NOW())"
-            db.session.execute(
-                sql, {"user_id": user_id, "tittle": tittle, "link": link})
+            db.session.execute(sql, {"user_id":user_id, "tittle":tittle, "link":link})
             db.session.commit()
             return True
         except:
