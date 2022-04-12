@@ -14,10 +14,10 @@ class TipsService:
             raise Exception("Title and link are required!")
 
         return self._tips_repository.add(title, link)
-    def delete_tip(self, id):
-        if not id:
+    def delete_tip(self, id_to_delete):
+        if not id_to_delete:
             raise Exception("Title and link are required!")
 
-        return self._tips_repository.delete_by_id(id)
+        return self._tips_repository.delete_by_id(id_to_delete)
 
 tips_service = TipsService()

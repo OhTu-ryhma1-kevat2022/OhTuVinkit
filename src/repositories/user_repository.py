@@ -20,7 +20,7 @@ class UserRepository:
             sql = "DELETE FROM users"
             db.session.execute(sql)
             db.session.commit()
-        except:
+        except Exception:
             db.session.rollback()
 
     def login(self, username, password):
@@ -31,7 +31,7 @@ class UserRepository:
                 )
         if not check_password_hash(user.password, password):
             raise Exception(
-                f"Incorrect username or password"
+                "Incorrect username or password"
             )
         session["user_id"] = user.id
         session["username"] = username
@@ -50,10 +50,10 @@ class UserRepository:
             sql = "INSERT INTO users (username, password) VALUES (:username, :password)"
             db.session.execute(sql, {"username":username,"password":hash_value})
             db.session.commit()
-        except:
+        except Exception as error:
             raise Exception(
                 f"User with username {username} already exists"
-            )
+            ) from error
 
     def logged_in(self):
         return session.get('logged_in', False)
