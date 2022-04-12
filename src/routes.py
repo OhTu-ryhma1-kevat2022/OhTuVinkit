@@ -1,8 +1,6 @@
-from flask import current_app as app
+from flask import render_template, request, redirect, flash, current_app as app
 from services.tips_service import tips_service
 from services.user_service import user_service
-from flask import render_template, request, redirect, flash
-
 
 @app.route("/")
 def home_page():
@@ -12,8 +10,8 @@ def home_page():
 
 @app.route("/welcome")
 def welcome():
-    list = tips_service.get_all_tips()
-    return render_template("welcome.html", count=len(list), tips=list)
+    all_tips = tips_service.get_all_tips()
+    return render_template("welcome.html", count=len(all_tips), tips=all_tips)
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -64,10 +62,10 @@ def new_tip():
         flash(str(error))
         return render_template("new_book_tip.html", entered_title=tittle, entered_link=link)
 
-@app.route("/delete_tip/<int:id>")
-def delete_tip(id):
+@app.route("/delete_tip/<int:tip_id>")
+def delete_tip(tip_id):
     try:
-        tips_service.delete_tip(id)
+        tips_service.delete_tip(tip_id)
         return redirect("/welcome")
     except Exception as error:
         flash(str(error))

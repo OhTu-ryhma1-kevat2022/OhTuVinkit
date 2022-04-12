@@ -1,6 +1,6 @@
-from db import db
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask import session
+from db import db
 
 class UserRepository:
     def find_all(self):
@@ -16,7 +16,7 @@ class UserRepository:
         return user
 
     def delete_all(self):
-        try:    
+        try:
             sql = "DELETE FROM users"
             db.session.execute(sql)
             db.session.commit()

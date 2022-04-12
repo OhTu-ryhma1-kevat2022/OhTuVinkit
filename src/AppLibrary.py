@@ -6,7 +6,7 @@ class AppLibrary:
         self.reset_application()
 
     def reset_application(self):
-        requests.post(f"{self._base_url}/tests/reset") 
+        requests.post(f"{self._base_url}/tests/reset")
 
     def create_user(self, username, password):
         data = {

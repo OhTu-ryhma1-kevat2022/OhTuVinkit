@@ -44,5 +44,5 @@ jobs:
       uses: codecov/codecov-action@v2
     - name: Analysing the code with pylint
       run: |
-        poetry run pylint src
+        poetry run pylint --disable=E1101 src
    

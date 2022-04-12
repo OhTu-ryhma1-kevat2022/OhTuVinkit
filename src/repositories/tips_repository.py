@@ -1,6 +1,5 @@
-from db import db
 from flask import session
-
+from db import db
 
 class TipsRepository:
 
@@ -14,8 +13,8 @@ class TipsRepository:
         try:
             sql = "SELECT tittle, link FROM tips WHERE tittle like '(:tittle)'"
             result = db.session.execute(sql, {"tittle": tittle})
-        except:
-            raise Exception(f"Couldn't fetch from database")
+        except Exception:
+            raise Exception("Couldn't fetch from database")
 
         return result.fetchall()
 
@@ -25,12 +24,13 @@ class TipsRepository:
         if user_id == 0:
             return False
         try:
-            sql = "INSERT INTO tips (user_id, tittle,link, created) VALUES (:user_id, :tittle, :link, NOW())"
+            sql = """INSERT INTO tips (user_id, tittle,link, created)
+            VALUES (:user_id, :tittle, :link, NOW())"""
             db.session.execute(sql, {"user_id":user_id, "tittle":tittle, "link":link})
             db.session.commit()
             return True
-        except:
-            raise Exception(f"Couldn't add your new tip")
+        except Exception:
+            raise Exception("Couldn't add your new tip")
 
     def delete_by_id(self,id):
         user_id = session.get("user_id", 0)
@@ -41,8 +41,7 @@ class TipsRepository:
             db.session.execute(sql, {"id":id, "user_id":user_id})
             db.session.commit()
             return True
-        except:
-            raise Exception(f"Couldn't delete tip")
-
+        except Exception:
+            raise Exception("Couldn't delete tip")
 
 tips_repository = TipsRepository()

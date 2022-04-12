@@ -1,4 +1,3 @@
-from entities.user import User
 from repositories.user_repository import (
     user_repository as default_user_repository
 )
@@ -9,7 +8,6 @@ class UserInputError(Exception):
 
 class AuthenticationError(Exception):
     pass
-
 
 class UserService:
     def __init__(self, user_repository=default_user_repository):
@@ -34,7 +32,7 @@ class UserService:
     def validate(self, username, password, confirm_password):
         if not username or not password:
             raise UserInputError("Username and password are required")
-        
+
         if password != confirm_password:
             raise UserInputError("Password do not match")
 

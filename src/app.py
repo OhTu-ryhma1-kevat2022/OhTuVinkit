@@ -12,6 +12,6 @@ def create_app():
 
     app.app_context().push()
 
-    import routes
+    import routes # pylint: disable=W0611,C0415
 
     return app

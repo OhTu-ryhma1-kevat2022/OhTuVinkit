@@ -4,4 +4,3 @@ class ReadingTip:
         self.title = title
         self.link = link
         # self.description = description
-
