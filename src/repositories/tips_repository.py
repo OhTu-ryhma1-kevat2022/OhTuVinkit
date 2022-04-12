@@ -44,4 +44,12 @@ class TipsRepository:
         except Exception as error:
             raise Exception("Couldn't delete tip") from error
 
+    def delete_all(self):
+        try:
+            sql = "DELETE FROM tips"
+            db.session.execute(sql)
+            db.session.commit()
+        except Exception:
+            db.session.rollback()
+
 tips_repository = TipsRepository()
