@@ -53,6 +53,6 @@ Sovellusta voi testata [Herokussa](https://ohtuvinkit.herokuapp.com/)
 
 ## Backlogit
 
-[Sprint Backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/jovajova_ad_helsinki_fi/EbZWsAXdbudPn9_B0XcSLj0BOkojwpKiX2F8R3k8QMAAmQ?e=2XcjKR)
+[Sprint Backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/jovajova_ad_helsinki_fi/EbZWsAXdbudPn9_B0XcSLj0BOkojwpKiX2F8R3k8QMAAmQ?e=iDMW3g)
 
-[Product Backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/jovajova_ad_helsinki_fi/EbZWsAXdbudPn9_B0XcSLj0BOkojwpKiX2F8R3k8QMAAmQ?e=ES1R4Z)
+[Product Backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/jovajova_ad_helsinki_fi/EbZWsAXdbudPn9_B0XcSLj0BOkojwpKiX2F8R3k8QMAAmQ?e=4GOeoB)
