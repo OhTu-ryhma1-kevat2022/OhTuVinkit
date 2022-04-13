@@ -1,5 +1,6 @@
 # Ohjelmistotuotannon miniprojekti - Lukuvinkkisovellus
 
+
 ![GitHub Actions](https://github.com/OhTu-ryhma1-kevat2022/OhTuVinkit/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/OhTu-ryhma1-kevat2022/OhTuVinkit/branch/master/graph/badge.svg?token=pb2DkzIhC6)](https://codecov.io/gh/OhTu-ryhma1-kevat2022/OhTuVinkit)
 
