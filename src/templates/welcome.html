@@ -2,9 +2,9 @@
 {% extends "layout.html" %}
 {% block title %}Main{% endblock %}
 {% block body %}
-<h2>Tervetuloa sovellukseen! </h2><br>
+<h2>Tervetuloa sovellukseen! </h2>
 {% if session.user_id %}
-<h2>Olet kirjautunut nimellä {{session.username}}</h2><br>
+<h3>Olet kirjautunut nimellä {{session.username}}</h3>
 
 <hr>
 {% for tip in tips %}

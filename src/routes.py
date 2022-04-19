@@ -4,9 +4,10 @@ from services.user_service import user_service
 
 @app.route("/")
 def home_page():
+    all_tips = tips_service.get_all_tips()
     if user_service.logged_in():
         return redirect("/welcome")
-    return render_template("index.html")
+    return render_template("index.html", count=len(all_tips), tips=all_tips)
 
 @app.route("/welcome")
 def welcome():

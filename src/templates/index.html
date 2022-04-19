@@ -8,6 +8,20 @@
     <h2>Tervetuloa sovellukseen!</h2>
 {% endif %}
 
+<h3>Tämän hetkiset lukuvinkit:</h3>
+{% if count > 0 %}
+{% for tip in tips %}
+<table>
+      <td><a href={{ tip[2] }}>{{ tip[1] }}</td>
+      <td>{{ tip[3].strftime("%d/%m/%Y") }}</td>
+</table>
+{% endfor %}
+{% else %}
+<h4>Ei vielä vinkkejä</h4>
+{% endif %}
+<hr>
+
+<h4>Haluatko lisätä oman lukuvinkkisi?</h4>
 <h3>Kirjautuminen</h3>
 <form action="/login" method="POST">
     {% with messages = get_flashed_messages() %}
