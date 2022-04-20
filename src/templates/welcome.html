@@ -8,28 +8,29 @@
 
 <hr>
 {% for tip in tips %}
-<table>
-    <tr>
-      <td><a href={{ tip[2] }}>{{ tip[1] }}</td>
-      <td>{{ tip[3].strftime("%d/%m/%Y") }}</td>
-      {% if session.user_id == tip[4] %}
 
-      <td><button onclick= "if(confirm('Haluatko varmasti poistaa vinkin?')){location.href='/delete_tip/{{ tip[0] }}'} else{}"  class="button" role="button" onclick="confirm_delete()" >Poista vinkki</a></td>
 
-      {% endif %}
+
+
 
       {% if session.user_id == tip[5] %}
-      <td>Luettu</td>
-
 
       {% else %}
+      <table>
+      <tr>
+      <td><a href={{ tip[2] }}>{{ tip[1] }}</td>
+        <td>{{ tip[3].strftime("%d/%m/%Y") }}</td>
+        {% if session.user_id == tip[4] %}
 
-      <td><button onclick= "if(confirm('Haluatko varmasti merkitä vinkin luetuksi?')){location.href='/mark_tip_readed/{{ tip[0] }}'} else{}"  class="button" role="button" onclick="confirm_delete()" >Merkitse luetuksi</a></td>
+        <td><button onclick= "if(confirm('Haluatko varmasti poistaa vinkin?')){location.href='/delete_tip/{{ tip[0] }}'} else{}"  class="button" role="button" onclick="confirm_delete()" >Poista vinkki</a></td>
+
         {% endif %}
-    </tr>
-  </table>
+        <td><button onclick= "if(confirm('Haluatko varmasti merkitä vinkin luetuksi?')){location.href='/mark_tip_readed/{{ tip[0] }}'} else{}"  class="button" role="button" onclick="confirm_delete()" >Merkitse luetuksi</a></td>
+        </tr>
+      </table>
+        {% endif %}
 
-<hr>
+
 {% endfor %}
 
 <a href="/new_book_tip">Uusi kirjavinkki</a><br>
