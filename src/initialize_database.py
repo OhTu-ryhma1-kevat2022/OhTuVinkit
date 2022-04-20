@@ -22,6 +22,13 @@ def create_tables():
         );
     """)
 
+    db.session.execute("""
+        CREATE TABLE readed (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER,
+        tip_id INTEGER
+        );
+    """)
 
 
     db.session.commit()
@@ -33,7 +40,11 @@ def drop_tables():
     """)
 
     db.session.execute("""
-        DROP TABLE IF EXISTS tips;
+        DROP TABLE IF EXISTS tips CASCADE;
+    """)
+
+    db.session.execute("""
+        DROP TABLE IF EXISTS readed;
     """)
 
     db.session.commit()

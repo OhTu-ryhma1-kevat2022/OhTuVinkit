@@ -18,6 +18,14 @@
 
       {% endif %}
 
+      {% if session.user_id == tip[5] %}
+      <td>Luettu</td>
+
+
+      {% else %}
+
+      <td><button onclick= "if(confirm('Haluatko varmasti merkitä vinkin luetuksi?')){location.href='/mark_tip_readed/{{ tip[0] }}'} else{}"  class="button" role="button" onclick="confirm_delete()" >Merkitse luetuksi</a></td>
+        {% endif %}
     </tr>
   </table>
 

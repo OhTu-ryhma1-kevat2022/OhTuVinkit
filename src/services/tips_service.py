@@ -20,4 +20,11 @@ class TipsService:
 
         return self._tips_repository.delete_by_id(id_to_delete)
 
+    def mark_readed(self, id_to_mark_readed):
+        if not id_to_mark_readed:
+            raise Exception("Title and link are required!")
+
+        return self._tips_repository.mark_readed(id_to_mark_readed)
+
+
 tips_service = TipsService()

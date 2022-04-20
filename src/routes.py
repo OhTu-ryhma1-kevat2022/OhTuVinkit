@@ -72,6 +72,14 @@ def delete_tip(tip_id):
         flash(str(error))
         return redirect("/welcome")
 
+@app.route("/mark_tip_readed/<int:tip_id>")
+def mark_tip_readed(tip_id):
+    try:
+        tips_service.mark_readed(tip_id)
+        return redirect("/welcome")
+    except Exception as error:
+        flash(str(error))
+        return redirect("/welcome")
 
 # sovelluksen tilan alustaminen testejä varten
 @app.route("/tests/reset", methods=["POST"])

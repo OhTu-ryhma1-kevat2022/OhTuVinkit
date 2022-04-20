@@ -4,9 +4,27 @@ from db import db
 class TipsRepository:
 
     def get_list(self):
-        sql = "SELECT id, tittle, link, created, user_id FROM tips"
-        result = db.session.execute(sql)
+        user_id = session.get("user_id", -1)
+        sql = "SELECT T.id, T.tittle, T.link, T.created, T.user_id, R.user_id FROM tips T LEFT JOIN readed R ON T.id = R.tip_id AND R.user_id =:user_id"
+        result = db.session.execute(sql, {"user_id": user_id})
         return result.fetchall()
+
+
+
+    def mark_readed(self,tip_id):
+        user_id = session.get("user_id", 0)
+        if user_id == 0:
+            return False
+        try:
+            sql = """INSERT INTO readed (user_id, tip_id)
+            VALUES (:user_id, :tip_id)"""
+            db.session.execute(sql, {"user_id":user_id, "tip_id":tip_id})
+            db.session.commit()
+            return True
+        except Exception as error:
+            raise Exception("Couldn't mark tip readed") from error
+
+
 
     def get_by_title(self, tittle):
 
