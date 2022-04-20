@@ -16,6 +16,7 @@ def welcome():
 
 @app.route("/login", methods=["POST"])
 def login():
+    all_tips = tips_service.get_all_tips()
     username = request.form["username"]
     password = request.form["password"]
     try:
@@ -23,7 +24,7 @@ def login():
         return redirect("/welcome")
     except Exception as error:
         flash(str(error))
-        return render_template("index.html", entered_username=username, entered_pass=password)
+        return render_template("index.html", count=len(all_tips), tips=all_tips, entered_username=username, entered_pass=password)
 
 @app.route("/logout")
 def logout():
