@@ -37,6 +37,7 @@ class UserRepository:
         session["username"] = username
         session["logged_in"] = True
         session["has_visited"] = True
+        session["show_readed"] = False
 
 
     def logout(self):
@@ -57,6 +58,8 @@ class UserRepository:
 
     def logged_in(self):
         return session.get('logged_in', False)
+
+
 
 
 user_repository = UserRepository()

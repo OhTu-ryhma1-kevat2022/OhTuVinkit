@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, flash, current_app as app
+from flask import render_template, request, redirect, flash, session, current_app as app
 from services.tips_service import tips_service
 from services.user_service import user_service
 
@@ -76,6 +76,18 @@ def delete_tip(tip_id):
 def mark_tip_readed(tip_id):
     try:
         tips_service.mark_readed(tip_id)
+        return redirect("/welcome")
+    except Exception as error:
+        flash(str(error))
+        return redirect("/welcome")
+
+@app.route("/togle_readed")
+def togle_readed():
+    try:
+        if session["show_readed"]:
+            session["show_readed"] = False
+        else:
+            session["show_readed"] = True
         return redirect("/welcome")
     except Exception as error:
         flash(str(error))
