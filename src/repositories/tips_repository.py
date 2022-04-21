@@ -28,8 +28,8 @@ class TipsRepository:
 
     def get_by_title(self, tittle):
         try:
-            sql = "SELECT tittle, link FROM tips WHERE tittle like '(:tittle)'"
-            result = db.session.execute(sql, {"tittle": tittle})
+            sql = "SELECT tittle, link FROM tips WHERE tittle LIKE (:tittle)"
+            result = db.session.execute(sql, {"tittle":tittle})
         except Exception as error:
             raise Exception("Couldn't fetch from database") from error
 
