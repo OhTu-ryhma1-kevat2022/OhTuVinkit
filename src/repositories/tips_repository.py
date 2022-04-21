@@ -1,18 +1,20 @@
-from flask import session
 from db import db
+from repositories.user_repository import (
+    user_repository as default_user_repository
+)
 
 class TipsRepository:
+    def __init__(self, user_repository=default_user_repository):
+        self._user_repository = user_repository
 
     def get_list(self):
-        user_id = session.get("user_id", -1)
+        user_id = self._user_repository.user_id()
         sql = "SELECT T.id, T.tittle, T.link, T.created, T.user_id, R.user_id FROM tips T LEFT JOIN readed R ON T.id = R.tip_id AND R.user_id =:user_id"
-        result = db.session.execute(sql, {"user_id": user_id})
+        result = db.session.execute(sql, {"user_id":user_id})
         return result.fetchall()
 
-
-
     def mark_readed(self,tip_id):
-        user_id = session.get("user_id", 0)
+        user_id = self._user_repository.user_id()
         if user_id == 0:
             return False
         try:
@@ -23,8 +25,6 @@ class TipsRepository:
             return True
         except Exception as error:
             raise Exception("Couldn't mark tip readed") from error
-
-
 
     def get_by_title(self, tittle):
 
@@ -37,8 +37,7 @@ class TipsRepository:
         return result.fetchall()
 
     def add(self, tittle, link):
-
-        user_id = session.get("user_id", 0)
+        user_id = self._user_repository.user_id()
         if user_id == 0:
             return False
         try:
@@ -51,7 +50,7 @@ class TipsRepository:
             raise Exception("Couldn't add your new tip") from error
 
     def delete_by_id(self, id_to_delete):
-        user_id = session.get("user_id", 0)
+        user_id = self._user_repository.user_id()
         if user_id == 0:
             return False
         try:

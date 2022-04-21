@@ -57,9 +57,9 @@ class UserRepository:
             ) from error
 
     def logged_in(self):
-        return session.get('logged_in', False)
+        return session.get("logged_in", False)
 
-
-
+    def user_id(self):
+        return session.get("user_id", 0)
 
 user_repository = UserRepository()
