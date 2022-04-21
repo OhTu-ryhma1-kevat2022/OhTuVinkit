@@ -1,10 +1,18 @@
 import unittest
-from repositories.tips_repository import tips_repository
-from repositories.user_repository import user_repository
+from unittest.mock import Mock
+from repositories.tips_repository import TipsRepository
+from repositories.user_repository import UserRepository
 
 class TestTipsRepository(unittest.TestCase):
     def setUp(self):
-        pass
+        self.user_repository_mock = Mock()
+        self.user_repository_mock.user_id.return_value = None
+        self.tips_repository = TipsRepository(self.user_repository_mock)
 
-    def test_get_list_returns_all_created_tips(self):
-        pass
+        self.tips_repository.delete_all()
+
+    def test_get_list_returns_correct_number_of_tips(self):
+        self.tips_repository.add("This is a title", "https://testlink.com")
+        all_tips = self.tips_repository.get_list()
+
+        self.assertEqual(len(all_tips), 1)

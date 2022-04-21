@@ -27,7 +27,6 @@ class TipsRepository:
             raise Exception("Couldn't mark tip readed") from error
 
     def get_by_title(self, tittle):
-
         try:
             sql = "SELECT tittle, link FROM tips WHERE tittle like '(:tittle)'"
             result = db.session.execute(sql, {"tittle": tittle})
