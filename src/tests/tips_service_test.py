@@ -31,3 +31,9 @@ class TestTipsService(unittest.TestCase):
         self.tips_service.delete_tip(id_to_test)
 
         self.tips_repository_mock.delete_by_id.assert_called_with(id_to_test)
+
+    def test_mark_tip_readed_by_id(self):
+        id_to_test ="testId123"
+        self.tips_service.mark_readed(id_to_test)
+
+        self.tips_repository_mock.mark_readed.assert_called_with(id_to_test)
