@@ -10,12 +10,14 @@
 
 <h3>Tämän hetkiset lukuvinkit:</h3>
 {% if count > 0 %}
+<table width="100%">
 {% for tip in tips %}
-<table>
-      <td><a href={{ tip[2] }}>{{ tip[1] }}</td>
-      <td>{{ tip[3].strftime("%d/%m/%Y") }}</td>
-</table>
+    <tr>
+        <td><a href={{ tip[2] }}>{{ tip[1] }}</td>
+        <td>{{ tip[3].strftime("%d/%m/%Y") }}</td>
+    </tr>
 {% endfor %}
+</table>
 {% else %}
 <h4>Ei vielä vinkkejä</h4>
 {% endif %}
