@@ -1,7 +1,6 @@
 import unittest
 from unittest.mock import Mock
 from repositories.tips_repository import TipsRepository
-from repositories.user_repository import UserRepository, db
 
 class TestTipsRepository(unittest.TestCase):
     def setUp(self):
