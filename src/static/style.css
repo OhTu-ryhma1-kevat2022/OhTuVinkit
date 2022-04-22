@@ -1,0 +1,56 @@
+body {
+    margin: 10%;
+    margin-top: 5%;
+    background: antiquewhite;
+    color: dimgrey;
+    font-family: sans-serif;
+    font-size: 90%;
+    font-weight: bold;
+}
+
+hr {
+    border: 1px solid tan;
+    margin-right: 30%;
+}
+
+h1 {
+    color: sienna;
+    font-weight: lighter;
+}
+
+h2 {
+    font-weight: lighter;
+}
+
+h3 {
+    font-weight: lighter;
+}
+
+h4 {
+    font-weight: lighter;
+}
+
+a {
+    color: black;
+    font-weight: lighter;
+}
+
+input {
+    display: block;
+}
+
+a:hover {
+    color: sienna;
+}
+
+.button {
+    background-color: tan;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid sienna;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: antiquewhite;
+}
