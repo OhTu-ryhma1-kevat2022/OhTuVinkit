@@ -29,9 +29,3 @@ class TestTipsRepository(unittest.TestCase):
     def test_marking_a_tip_as_read_with_invalid_id_raises_exception(self):
         with self.assertRaises(Exception):
             self.tips_repository.mark_readed("invalid id")
-
-    def test_get_by_title_method_finds_the_correct_tip(self):
-        self.tips_repository.add("Title to be found", "test_link")
-        tip_to_find = self.tips_repository.get_by_title("Title to be found")[0]
-
-        self.assertEqual(tip_to_find.tittle, "Title to be found")

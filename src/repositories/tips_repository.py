@@ -26,15 +26,6 @@ class TipsRepository:
         except Exception as error:
             raise Exception("Couldn't mark tip readed") from error
 
-    def get_by_title(self, tittle):
-        try:
-            sql = "SELECT tittle, link FROM tips WHERE tittle LIKE (:tittle)"
-            result = db.session.execute(sql, {"tittle":tittle})
-        except Exception as error:
-            raise Exception("Couldn't fetch from database") from error
-
-        return result.fetchall()
-
     def add(self, tittle, link):
         user_id = self._user_repository.user_id()
         if user_id == 0:
