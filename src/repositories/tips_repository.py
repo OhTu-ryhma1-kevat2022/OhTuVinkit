@@ -9,7 +9,7 @@ class TipsRepository:
 
     def get_list(self):
         user_id = self._user_repository.user_id()
-        sql = "SELECT T.id, T.tittle, T.link, T.created, T.user_id, R.user_id FROM tips T LEFT JOIN readed R ON T.id = R.tip_id AND R.user_id =:user_id"
+        sql = "SELECT T.id, T.tittle, T.link, T.created, T.user_id, R.user_id as readed_id FROM tips T LEFT JOIN readed R ON T.id = R.tip_id AND R.user_id =:user_id"
         result = db.session.execute(sql, {"user_id":user_id})
         return result.fetchall()
 
