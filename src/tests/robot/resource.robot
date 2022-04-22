@@ -17,13 +17,13 @@ Open And Configure Browser
     Set Selenium Speed  ${DELAY}
 
 Home And Login Page Should Be Open
-    Title Should Be  OhTu Vinkit-Etusivu
+    Title Should Be  OhTu-Vinkit-Etusivu
 
 Main Page Should Be Open
-    Title Should Be  OhTu Vinkit-Main
+    Title Should Be  OhTu-Vinkit-Main
 
 Register Page Should Be Open
-    Title Should Be  OhTu Vinkit-Register
+    Title Should Be  OhTu-Vinkit-Register
 
 Go To Home And Login Page
     Go To  ${HOME URL}
