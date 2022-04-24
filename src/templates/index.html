@@ -13,8 +13,8 @@
 <table width="100%">
 {% for tip in tips %}
     <tr>
-        <td><a href={{ tip[2] }}>{{ tip[1] }}</td>
-        <td>{{ tip[3].strftime("%d/%m/%Y") }}</td>
+        <td><a href={{ tip.link }}>{{ tip.tittle }}</td>
+        <td>{{ tip.created.strftime("%d/%m/%Y") }}</td>
     </tr>
 {% endfor %}
 </table>
