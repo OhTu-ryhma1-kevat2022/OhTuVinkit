@@ -13,6 +13,16 @@ Add A Tip And Delete It
     Handle Alert
     Page Should Not Contain  test title
 
+Making A Tip Read By User Works
+    Go To New Tip Page
+    Adding A New Tip With Valid Title And Link
+    Main Page Should Be Open
+    Click Button  Merkitse luetuksi
+    Handle Alert
+    Click Button  Näytä luetut
+    Page Should Contain  test title
+
+
 *** Keywords ***
 Create User And Go To Login Page
     Create User  test_user  test1234
