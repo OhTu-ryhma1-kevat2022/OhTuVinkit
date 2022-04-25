@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block title %}Rekisteröityminen{% endblock %}
+{% block title %}Lisää vinkki{% endblock %}
 {% block body %}
 {% if session.user_id %}
 Olet kirjautunut nimellä
@@ -21,4 +21,6 @@ Otsikko: <input type="text" name="title" value="{{entered_title}}"> <br>
 Linkki: <input type="text" name="link" value="{{entered_link}}"> <br>
 <input type="submit" value="Lisää vinkki" class="button">
 </form>
+<br>
+<a href="/logout">Kirjaudu ulos</a>
 {% endblock %}

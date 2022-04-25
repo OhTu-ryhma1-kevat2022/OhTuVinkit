@@ -60,4 +60,4 @@ Create User And Go To Login Page
 Input Credentials
     [Arguments]  ${username}  ${password}
     Set Username  ${username}
-    SEt Password  ${password}
+    Set Password  ${password}
