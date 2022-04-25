@@ -20,3 +20,7 @@ User story on:
 [Sprint Backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/jovajova_ad_helsinki_fi/EbZWsAXdbudPn9_B0XcSLj0BOkojwpKiX2F8R3k8QMAAmQ?e=iDMW3g)
 
 [Product Backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/jovajova_ad_helsinki_fi/EbZWsAXdbudPn9_B0XcSLj0BOkojwpKiX2F8R3k8QMAAmQ?e=4GOeoB)
+
+## Raportti
+
+[Raportti](https://github.com/OhTu-ryhma1-kevat2022/OhTuVinkit/blob/master/documents/raportti.md)
