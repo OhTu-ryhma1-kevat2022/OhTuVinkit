@@ -54,3 +54,11 @@ a:hover {
 .button:hover {
     background-color: antiquewhite;
 }
+
+table {
+    table-layout: auto;
+}
+
+td {
+    padding: 5px;
+}
