@@ -35,6 +35,7 @@ Adding A Tip Should Fail With Message
 
 Adding A Tip Should Succeed
     Main Page Should Be Open
+    Page Should Contain  This is a title
 
 Submit New Tip
     Click Button  Lisää vinkki
