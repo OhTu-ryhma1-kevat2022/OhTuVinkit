@@ -98,4 +98,5 @@ def togle_readed():
 @app.route("/tests/reset", methods=["POST"])
 def reset_tests():
     user_service.delete_all_users()
+    tips_service.delete_all_tips()
     return "Reset"

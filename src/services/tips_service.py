@@ -26,5 +26,8 @@ class TipsService:
 
         return self._tips_repository.mark_readed(id_to_mark_readed)
 
+    def delete_all_tips(self):
+        self._tips_repository.delete_all()
+
 
 tips_service = TipsService()
