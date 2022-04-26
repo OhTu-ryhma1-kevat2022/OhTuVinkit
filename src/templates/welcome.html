@@ -19,7 +19,7 @@
   {% if session.show_readed %}
   {% if session.user_id == tip.readed_id %}
   <tr>
-    <td><a href={{ tip.link }}>{{ tip.tittle }}</td>
+    <td><a href={{ tip.link }} target="_blank" rel="noopener noreferrer">{{ tip.tittle }}</td>
     <td>{{ tip.created.strftime("%d/%m/%Y") }}</td>
     {% if session.user_id == tip.user_id %}
     <td><button
@@ -33,7 +33,7 @@
 
   {% if session.user_id != tip.readed_id %}
   <tr>
-    <td><a href={{ tip.link }}>{{ tip.tittle }}</td>
+    <td><a href={{ tip.link }} target="_blank" rel="noopener noreferrer">{{ tip.tittle }}</td>
     <td>{{ tip.created.strftime("%d/%m/%Y") }}</td>
     <td><button
       onclick="if(confirm('Haluatko varmasti merkitä vinkin luetuksi?')){location.href='/mark_tip_readed/{{ tip.id }}'} else{}"

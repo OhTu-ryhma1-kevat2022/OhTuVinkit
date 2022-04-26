@@ -13,7 +13,7 @@
 <table>
 {% for tip in tips %}
     <tr>
-        <td><a href={{ tip.link }}>{{ tip.tittle }}</td>
+        <td><a href={{ tip.link }} target="_blank" rel="noopener noreferrer">{{ tip.tittle }}</td>
         <td>{{ tip.created.strftime("%d/%m/%Y") }}</td>
     </tr>
 {% endfor %}
