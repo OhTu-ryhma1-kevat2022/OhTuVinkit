@@ -41,7 +41,8 @@ class UserRepository:
 
 
     def logout(self):
-        del session["user_id"]
+        if session["user_id"]:
+            del session["user_id"]
         session['logged_in'] = False
 
 
