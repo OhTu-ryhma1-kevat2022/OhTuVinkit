@@ -43,6 +43,7 @@ jobs:
       env:
         DATABASE_URL: postgresql://postgres:postgres@localhost/postgres
         FLASK_ENV: development
+        SECRET_KEY: 123aabcd4567efgh89jkl
     - name: Coverage report
       run: poetry run coverage xml
     - name: Coverage report to Codecov
