@@ -100,3 +100,7 @@ def reset_tests():
     user_service.delete_all_users()
     tips_service.delete_all_tips()
     return "Reset"
+
+@app.route("/ping")
+def ping():
+    return ""
