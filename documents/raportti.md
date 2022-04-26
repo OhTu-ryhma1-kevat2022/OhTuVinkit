@@ -22,7 +22,7 @@ Myös tässä spintissä kommukointi ryhmässä sujui hyvin ja ongelmatilanteiss
 
 ### Haasteet 3.sprintissä
 
-Kolmannessa sprintissä ryhmä jatkoi samoilla hyvillä työskentelytavoilla, jotka toimivat jo toisessa sprintissä. Suurempia haasteita ei enää kolmannessa sprintissä ilmentynyt ja saimme projektin tehtyä loppuun hyvissä ajoin.   
+Kolmannessa sprintissä ryhmä jatkoi samoilla hyvillä työskentelytavoilla, jotka toimivat jo toisessa sprintissä. Vaikutti siltä, että suurempia haasteita ei kolmannessa sprintissä ilmene, kunnes päästiin loppudemopäivään. Ryhmän sisällä oli sekaannuksia siitä minä päivänä loppudemo pidetään, minkä vuoksi aivan loppumetreillä tuli hieman kiire toteuttaa viimeisiä taskeja. Suureksi ongelmaksi muodostui hyväksymätestien vieminen GitHub Actionsin suoritettavaksi. Tämän sekaannuksen vuoksi myös joitain parannuksia koodin laatuun jäi toteuttamatta. Saimme näistä haasteista huolimatta projektin kuitenkin tehtyä hienosti loppuun.
 
 ### Mikä sujui hyvin ja mitä parantaa
 
