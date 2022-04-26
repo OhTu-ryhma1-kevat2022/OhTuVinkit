@@ -42,6 +42,7 @@ jobs:
       run: bash run_robot_tests.sh
       env:
         DATABASE_URL: postgresql://postgres:postgres@localhost/postgres
+        FLASK_ENV: development
     - name: Coverage report
       run: poetry run coverage xml
     - name: Coverage report to Codecov
