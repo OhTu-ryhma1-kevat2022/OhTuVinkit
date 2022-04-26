@@ -11,5 +11,7 @@ except FileNotFoundError:
 DATABASE_URL = os.getenv("DATABASE_URL")
 SECRET_KEY = os.getenv("SECRET_KEY")
 
+ENV = os.getenv("FLASK_ENV") or "production"
+
 # Fix for Heroku
 DATABASE_URL = DATABASE_URL.replace('postgres://', 'postgresql://')

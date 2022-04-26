@@ -1,5 +1,5 @@
 from flask import Flask
-from config import DATABASE_URL, SECRET_KEY
+from config import DATABASE_URL, SECRET_KEY, ENV
 from db import db
 
 def create_app():
@@ -7,6 +7,7 @@ def create_app():
     app.secret_key = SECRET_KEY
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['FLASK_ENV'] = ENV
 
     db.init_app(app)
 
