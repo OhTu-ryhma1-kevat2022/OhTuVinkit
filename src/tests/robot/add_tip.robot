@@ -34,6 +34,7 @@ Adding A Tip Should Fail With Message
     Page Should Contain  ${message}
 
 Adding A Tip Should Succeed
+    Sleep  3 seconds
     Main Page Should Be Open
     Page Should Contain  This is a title
 

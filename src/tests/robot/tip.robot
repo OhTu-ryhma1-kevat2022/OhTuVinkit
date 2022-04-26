@@ -11,6 +11,7 @@ Add A Tip And Delete It
     Main Page Should Be Open
     Click Button  Poista vinkki
     Handle Alert
+    Sleep  3 seconds
     Page Should Not Contain  test title
 
 Making A Tip Read By User Works
