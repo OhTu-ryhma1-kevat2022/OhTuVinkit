@@ -38,6 +38,10 @@ jobs:
         export DISPLAY=:99
         chromedriver --url-base=/wd/hub &
         sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
+    - name: Run robot tests
+      run: bash run_robot_tests.sh
+      env:
+        DATABASE_URL: postgresql://postgres:postgres@localhost/postgres
     - name: Coverage report
       run: poetry run coverage xml
     - name: Coverage report to Codecov
@@ -45,4 +49,3 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         poetry run pylint --disable=E1101 src
-   
